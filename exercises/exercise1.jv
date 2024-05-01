@@ -1,5 +1,5 @@
 pipeline AirportsPipline{
-
+    // Extracts a list of airports from a CSV file and loads it into a SQLite database
     AirportsExtractor 
         -> AirportsTextFileInterpreter 
         -> AirportsCSVInterpreter 
