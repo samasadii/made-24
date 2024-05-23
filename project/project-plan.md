@@ -21,13 +21,13 @@ These datasets are used for monitoring temperature and land cover dynamics, info
 <!-- Describe each datasources you plan to use in a section. Use the prefic "DatasourceX" where X is the id of the datasource. -->
 
 ### Datasource1: Annual Surface Temperature Change
-* Metadata URL: [[https://mobilithek.info/offers/-6901989592576801458](https://archive.ics.uci.edu/dataset/162/forest+fires)]](https://climatedata.imf.org/pages/climatechange-data)
-* Data URL: [[https://raw.githubusercontent.com/od-ms/radverkehr-zaehlstellen/main/100035541/2019-01.csv](https://archive.ics.uci.edu/static/public/162/forest+fires.zip)](https://opendata.arcgis.com/datasets/4063314923d74187be9596f10d034914_0.csv)
+* Metadata URL: https://climatedata.imf.org/pages/climatechange-data
+* Data URL: https://opendata.arcgis.com/datasets/4063314923d74187be9596f10d034914_0.csv
 * Data Type: CSV
 
 ### Datasource2: Land Cover and Land Cover Altering Indicator
-* Metadata URL: [[https://mobilithek.info/offers/-6901989592576801458](https://archive.ics.uci.edu/dataset/162/forest+fires)]](https://climatedata.imf.org/pages/climatechange-data)
-* Data URL: [[[https://raw.githubusercontent.com/od-ms/radverkehr-zaehlstellen/main/100035541/2019-01.csv](https://archive.ics.uci.edu/static/public/162/forest+fires.zip)](https://opendata.arcgis.com/datasets/4063314923d74187be9596f10d034914_0.csv)](https://opendata.arcgis.com/datasets/b1e6c0ea281f47b285addae0cbb28f4b_0.csv)
+* Metadata URL: https://climatedata.imf.org/pages/climatechange-data
+* Data URL: https://opendata.arcgis.com/datasets/b1e6c0ea281f47b285addae0cbb28f4b_0.csv
 * Data Type: CSV
 
 Short description of the DataSource.
