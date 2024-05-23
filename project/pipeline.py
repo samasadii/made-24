@@ -4,7 +4,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 global file_directory
-file_directory = "../data"
+file_directory = "./data"
 
 def run_pipeline(data_url, table_name):
 
