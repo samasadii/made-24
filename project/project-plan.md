@@ -30,12 +30,10 @@ These datasets are used for monitoring temperature and land cover dynamics, info
 * Data URL: https://opendata.arcgis.com/datasets/b1e6c0ea281f47b285addae0cbb28f4b_0.csv
 * Data Type: CSV
 
-Short description of the DataSource.
-
 ## Work Packages
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
 1. Example Issue [#1][i1]
 
-[i1]: [https://github.com/jvalue/made-template/issues/1](https://github.com/samasadii/made-24/issues/1#issue-2312468623)
+[i1]: https://github.com/samasadii/made-24/issues/1#issue-2312468623
