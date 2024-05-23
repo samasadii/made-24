@@ -33,7 +33,7 @@ def save_to_sql(table, table_name):
     else:
         print("Error: Table is empty")
 
-
+# Metadata url: https://climatedata.imf.org/pages/climatechange-data
 data_sources = {
     "surface_temperature": "https://opendata.arcgis.com/datasets/4063314923d74187be9596f10d034914_0.csv",
     "land_cover": "https://opendata.arcgis.com/datasets/b1e6c0ea281f47b285addae0cbb28f4b_0.csv"
