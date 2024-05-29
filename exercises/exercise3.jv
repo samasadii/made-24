@@ -1,0 +1,76 @@
+valuetype Month oftype text {
+    constraints: [MonthConstraint];
+ }
+ 
+constraint MonthConstraint oftype AllowlistConstraint {
+    allowlist:['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+}
+
+
+valuetype Id oftype text {
+    constraints: [IdConstraint];
+ } 
+ 
+ constraint IdConstraint oftype RegexConstraint{
+   regex: /^NST7-([A-Z0-9]{3})$/; 
+ }
+
+ valuetype Integer oftype integer {
+        constraints: [IntegerConstraint];
+    }
+
+    constraint IntegerConstraint on decimal:
+       value >= 0;
+
+pipeline GoodsPipline{
+    
+    GoodsExtractor 
+        -> GoodsTextFileInterpreter 
+        -> GoodsSelector
+        -> GoodsCSVInterpreter 
+        -> Column_A_E
+        -> Column_AT_AU
+        -> GoodsTableInterpreter 
+        -> GoodsLoader;
+
+    block GoodsExtractor oftype HttpExtractor{
+        url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46131-0014_00.csv";
+    }
+
+    block GoodsTextFileInterpreter oftype TextFileInterpreter{
+        encoding: "latin3";
+    } 	
+    
+    block GoodsSelector oftype TextRangeSelector {
+        lineFrom: 8;
+        lineTo: 450000; 
+    }
+
+    block GoodsCSVInterpreter oftype CSVInterpreter { delimiter: ';'; }
+
+    block Column_A_E oftype CellWriter {
+        at: range A1:E1;
+         write: ["year", "month", "goods_id", "goods_name", "goods_source"];
+    }
+
+    block Column_AT_AU oftype CellWriter {
+        at: range AT1:AU1;
+         write: ["abroad", "total"];
+    }
+
+    block GoodsTableInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            "year" oftype Integer,
+            "month" oftype Month,
+            "goods_name" oftype text,
+            "goods_source" oftype text,
+            "goods_id" oftype Id,
+            "abroad" oftype Integer,
+            "total" oftype Integer
+        ];
+    }
+
+    block GoodsLoader oftype SQLiteLoader { table: "goods"; file: "./goodsTransportedByTrain.sqlite"; }
+
+}
