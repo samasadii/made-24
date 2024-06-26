@@ -2,7 +2,6 @@
 
 # Setting up the environment
 echo "Setting up the test environment..."
-mkdir -p ../data
 
 # Running the test script
 echo "Running the tests..."
