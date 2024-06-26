@@ -1,0 +1,73 @@
+          
+pipeline GtfsPipeline {
+ GtfsExtractor
+    ->ZipInterpreter
+    ->GtfsFilePicker 
+    ->GtfsTextFileInterpreter
+    ->GtfsCSVInterpreter
+    ->TemperaturesTableInterpreter
+    ->GtfsLoader;
+ 
+ 
+ block GtfsExtractor oftype HttpExtractor {
+    url:"https://gtfs.rhoenenergie-bus.de/GTFS.zip";
+ }
+
+ block ZipInterpreter oftype ArchiveInterpreter {
+    archiveType: "zip";
+ }
+
+ block GtfsFilePicker oftype FilePicker {
+    path: "/stops.txt";
+ }
+
+ block GtfsTextFileInterpreter oftype TextFileInterpreter {}
+ 
+ block GtfsCSVInterpreter oftype CSVInterpreter { 
+    delimiter: ",";
+    enclosing: '"';
+ }
+
+block TemperaturesTableInterpreter oftype TableInterpreter { 
+     header: true; 
+     columns: [
+            "stop_id" oftype Id,
+            "stop_name" oftype text,
+            "stop_lat" oftype latitude_longitude,
+            "stop_lon" oftype latitude_longitude,
+            "zone_id" oftype ZoneId
+              ];
+}
+
+block GtfsLoader oftype SQLiteLoader { 
+    table: "stops";
+        file: "gtfs.sqlite";
+}
+
+valuetype ZoneId oftype integer {
+        constraints: [ ZoneIdConstraint ];
+ }
+
+    constraint ZoneIdConstraint on integer:
+       value == 1645;
+
+valuetype latitude_longitude oftype decimal {
+   constraints: [ latitude_longitude_Constraint ];
+ }
+
+ constraint latitude_longitude_Constraint oftype RangeConstraint {
+        lowerBound: -90;
+        lowerBoundInclusive: true;
+        upperBound: 90;
+        upperBoundInclusive: true;
+ }
+
+valuetype Id oftype integer {
+        constraints: [ IdConstraint ];
+}
+
+constraint IdConstraint on integer:
+   value > 0;
+ 
+}
+  
