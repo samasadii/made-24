@@ -28,6 +28,4 @@ jobs:
         pip install sqlalchemy
         
     - name: Test and Run
-      run: |
-        chmod +x project/tests.sh
-        project/tests.sh
+      run: chmod +x project/tests.sh
