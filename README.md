@@ -1,3 +1,12 @@
+# Project
+
+## Annual Surface Temperature and Land Cover Analysis Report
+
+This project investigates the data processing and analysis performed on the Annual Surface Temperature
+Change and Land Cover and Land Cover Altering Indicator datasets. The data is sourced from
+the Food and Agriculture Organization Corporate Statistical Database (FAOSTAT) and National
+Aeronautics and Space Administration Goddard Institute for Space Studies (NASA GISS).
+
 # Exercise Badges
 
 ![](https://byob.yarr.is/samasadii/made-24/score_ex1) ![](https://byob.yarr.is/samasadii/made-24/score_ex2) ![](https://byob.yarr.is/samasadii/made-24/score_ex3) ![](https://byob.yarr.is/samasadii/made-24/score_ex4) ![](https://byob.yarr.is/samasadii/made-24/score_ex5)
